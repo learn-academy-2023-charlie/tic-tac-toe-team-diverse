@@ -3,7 +3,7 @@ import React from 'react'
 const Button = (props) => {
   return (
    <>
-      <button onClcik = {props.handleRestart}> Restart the game!</button>
+      <button onClick = {props.handleRestart}> Restart the game!</button>
    </>
   )
 }
