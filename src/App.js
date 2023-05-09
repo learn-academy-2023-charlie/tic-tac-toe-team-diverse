@@ -2,11 +2,13 @@ import React, { useState } from 'react'
 import Square from './components/Square'
 import './App.css'
 
-let tempArr = []
+
 
 const App = () => {
   const [squares, setSquares] = useState(Array(9).fill(null))
   const [user, setUser] = useState(true)
+  const [tempArr, setTempArr] = useState([])
+  const [gameOver, setGameOver] = useState(false)
   function calculateWinner(squares) {
     const lines = [
       [0, 1, 2],
@@ -21,7 +23,8 @@ const App = () => {
     for (let i = 0; i < lines.length; i++) {
       const [a, b, c] = lines[i];
       if (squares[a] && squares[a] === squares[b] && squares[a] === squares[c]) {
-        return squares[a];
+        setGameOver(true)
+        alert (`${squares[a]}' is the winner!'`);
       }
     }
     return null;
@@ -30,10 +33,13 @@ const App = () => {
 
   const handleClick = (selectedIndex) => {
     console.log(tempArr);
-    if (tempArr.includes(selectedIndex)) {
+    if (gameOver) {
+      alert ("Game is over! please restart the game!" )
+    }
+    else if (tempArr.includes(selectedIndex)) {
       alert ("No, you can't")
     } else {
-    tempArr.push(selectedIndex)
+    setTempArr([...tempArr, selectedIndex])
     // console.log(tempArr);
     // const newSquares = [...squares]
     // newSquares[selectedIndex] = user ? "X" : "O"
