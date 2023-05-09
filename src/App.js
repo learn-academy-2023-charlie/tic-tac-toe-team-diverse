@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import Square from './components/Square'
+import Button from './components/Button'
 import './App.css'
 
 
@@ -41,10 +42,14 @@ const App = () => {
     return null;
   }
 
+  const handleRestart = () => {
+    setSquares(Array(9).fill(null))
+    setUser(true)
+    setGameOver(false)
+    setTempArr([])
+  }
 
   const handleClick = (selectedIndex) => {
-
-  
 
     if (gameOver || tempArr.includes(selectedIndex)) {
       alert ("Game is over! please restart the game!")
@@ -65,6 +70,9 @@ const App = () => {
       <Square 
       squares={squares}
       handleClick = {handleClick}
+      />
+      <Button 
+      handleRestart={handleRestart}
       />
     </>
   )
