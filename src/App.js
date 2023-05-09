@@ -11,6 +11,7 @@ const App = () => {
   const [user, setUser] = useState(true)
   const [tempArr, setTempArr] = useState([])
   const [gameOver, setGameOver] = useState(false)
+  const [iconOptions, setIcon] = useState(["X", "O", "🌴", "🍏"])
   
   function calculateWinner(squares) {
     
@@ -40,6 +41,10 @@ const App = () => {
     }
 
     return null;
+  }
+
+  const userIcon = () => {
+    
   }
 
   const handleRestart = () => {

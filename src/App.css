@@ -1,4 +1,10 @@
+h1 {
+  text-align: center;
+}
+
 .square {
+  text-align: center;
+  font-size: 85px;
   border: 2px solid black;
   height: 100px;
   width: 100px;
@@ -10,4 +16,10 @@
   width: 320px;
   margin: 0 auto;
 
+}
+
+.button {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
 }
